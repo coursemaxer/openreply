@@ -175,6 +175,7 @@ async function sweepCampaign(
       stat.errors.push(`Comments ${mediaId}: ${errMessage(error)}`);
       continue;
     }
+    stat.errors.push(`dbg ${mediaId}: ${comments.length} fetched, ${comments.filter((c) => c.from?.id).length} with from`);
 
     // Keep only comments that (a) aren't the account's own, (b) match the
     // keyword, and (c) have no reply from the account owner yet.
